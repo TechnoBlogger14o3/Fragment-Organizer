@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class FlowOrganizer {
         if (framentList != null) {
             for (Fragment f : framentList) {
                 if (f != null)
-                    AppLogger.e("", "f name:" + f.getClass().getName());
+                    Log.e("", "f name:" + f.getClass().getName());
             }
         }
         if (_fragmnet_manager.getBackStackEntryCount() > 0) {
@@ -52,7 +53,7 @@ public class FlowOrganizer {
                 _list_instant_state.clear();
             if (_list_back_state != null)
                 _list_back_state.clear();
-            AppLogger.e("",
+            Log.e("",
                     "Count back entitty"
                             + _fragmnet_manager.getBackStackEntryCount());
         }
@@ -85,7 +86,7 @@ public class FlowOrganizer {
                 // for (int i = 0; i <
                 // _fragmnet_manager.getBackStackEntryCount(); i++) {
                 for (int i = _fragmnet_manager.getBackStackEntryCount(); i >= 0; i--) {
-                    AppLogger.e("the fragment is", ""
+                    Log.e("the fragment is", ""
                             + _fragmnet_manager.getFragments().get(i)
                             .getClass().getSimpleName());
                     try {
@@ -173,7 +174,7 @@ public class FlowOrganizer {
                 .equalsIgnoreCase("FragmentUserHomeMyOrder")) {
             if (!isToAdd(toFragment)) {
                 try {
-                    AppLogger.e("Current Fragment", ""
+                    Log.e("Current Fragment", ""
                             + toFragment.getClass().getSimpleName());
                     if (toFragment.getClass().getSimpleName()
                             .equalsIgnoreCase("FragmentUserHomeMyOrder")) {
@@ -285,7 +286,7 @@ public class FlowOrganizer {
     public void onResume() {
         isPaused = false;
         if (_list_instant_state != null) {
-            AppLogger.e("", "size to exc:" + _list_instant_state.size());
+            Log.e("", "size to exc:" + _list_instant_state.size());
             for (int i = 0; i < _list_instant_state.size(); i++) {
                 InstanseState instanseState = _list_instant_state.get(i);
                 switch (instanseState._fragment_type) {

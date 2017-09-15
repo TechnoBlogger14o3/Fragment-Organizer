@@ -25,14 +25,11 @@ public class FragmentThree extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         FragmentThreeBinding fragmentThreeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_three, container, false);
         View rootView = fragmentThreeBinding.getRoot();
-        Bundle bundle = new Bundle();
-        bundle = getArguments();
+        Bundle bundle = getArguments();
         String strValue = bundle.getString("keyA");
         Toast.makeText(AppSingleton.getInstance().getActivityInstance(), "Bundle Value is " + strValue, Toast.LENGTH_SHORT).show();
 
         AppSingleton.getInstance().getActivityInstance().setTitle(getResources().getString(R.string.fragment_three));
         return rootView;
     }
-
-
 }
